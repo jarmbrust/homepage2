@@ -6,20 +6,20 @@ import About from '../../features/nav/MainMenu/About';
 import Pets from '../../features/nav/MainMenu/Pets';
 import Projects from '../../features/nav/MainMenu/Projects';
 import HomePage from '../../features/home/HomePage';
+import { Container } from 'semantic-ui-react';
 
 class App extends Component {
   render() {
     return (
       <div>
         <NavBar/>
-        <BrowserRouter>
-          <Switch>
+          <div>
             <Route exact path="/" component={HomePage} />
-            <Route path="/projects" component={Projects} />
+            <Route link="/projects" component={Projects} />
             <Route path="/pets" component={Pets} />
             <Route path="/aboutme" component={About} />
-          </Switch>
-         </BrowserRouter>
+            <Route component={HomePage}/>
+          </div>
       </div>
     );
   }

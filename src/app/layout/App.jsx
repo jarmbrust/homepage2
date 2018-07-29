@@ -7,19 +7,20 @@ import Pets from '../../features/nav/MainMenu/Pets';
 import Projects from '../../features/nav/MainMenu/Projects';
 import HomePage from '../../features/home/HomePage';
 import { Container } from 'semantic-ui-react';
+import ErrorPage from '../../features/nav/MainMenu/ErrorPage';
 
 class App extends Component {
   render() {
     return (
       <div>
         <NavBar/>
-          <div>
-            <Route exact path="/" component={HomePage} />
-            <Route link="/projects" component={Projects} />
-            <Route path="/pets" component={Pets} />
-            <Route path="/aboutme" component={About} />
-            <Route component={HomePage}/>
-          </div>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/pets" component={Pets} />
+          <Route path="/aboutme" component={About} />
+          <Route component={ErrorPage}/>
+        </Switch>
       </div>
     );
   }
